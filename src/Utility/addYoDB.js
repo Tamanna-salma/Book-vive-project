@@ -44,4 +44,4 @@ const AddToStoreDB=(id)=>{
 
 }
 
-export {addToStoreDB,AddToStoreDB}
+export {addToStoreDB,AddToStoreDB,getStorBook}

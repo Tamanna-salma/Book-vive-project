@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const Book = ({singlebook}) => {
     // const data=use(bookpromise);
     // console.log(data);
-    const{bookName,author, bookId,image,tags,rating,category ,yearOfPublishing,publisher}=singlebook;
+    const{bookName,author, bookId,image,tags,rating,category ,yearOfPublishing,publisher,totalPages}=singlebook;
   return (
   <Link to={`/bookDetails/${bookId}`}>
    <div className="card bg-base-100 w-full md:w-96 shadow-sm border p-4">
@@ -25,12 +25,15 @@ const Book = ({singlebook}) => {
     <div className='flex gap-4'>
       
         <p>By :{publisher}</p>
+      
           <h3>{author}</h3>
     </div>
     <div className='border-t-1 border-dashed'></div>
     <div className="card-actions  justify-between">
       <div className="badge badge-outline">{category}</div>
+      <div className="badge badge-outline">{totalPages}</div>
       <div className="badge badge-outline">{rating}<FaStarHalfAlt /></div>
+      
     </div>
   </div>
 </div>

@@ -26,6 +26,7 @@ children:[
 },
 {
   path:'/readlist',
+   loader:()=>fetch('/booksData.json'),
   Component:ReadList
 },
 {

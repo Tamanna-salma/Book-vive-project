@@ -1,6 +1,10 @@
 import React from 'react'
 import { useLoaderData, useParams } from 'react-router'
 import { AddToStoreDB, addToStoreDB } from '../../Utility/addYoDB';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+  import { ToastContainer, toast } from 'react-toastify';
+const MySwal = withReactContent(Swal)
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -9,6 +13,13 @@ const BookDetails = () => {
   const singlebook = data.find(book => book.bookId === bookid)
   const { bookName, image, totalPages,author, category,rating, publisher,yearOfPublishing, review, tags } = singlebook || {};
   const handleRead=id=>{
+
+    MySwal.fire({
+  title: "Good job!",
+  text: "You clicked the button!",
+  icon: "success"
+});
+// toast("Wow so easy!")
 addToStoreDB(id)
 
   }
@@ -19,6 +30,7 @@ addToStoreDB(id)
     <div className=' flex flex-col md:flex-row gap-9' >
       <div className='w-full md:w-[50%] rounded-xl mt-7 bg-gray-200 '>
         <img className=' rounded-xl mt-3 p-5' src={image} alt="" />
+           <ToastContainer />
       </div>
 
       <div className='w-full  md:w-[50%] p-5 rounded mt-7'>
